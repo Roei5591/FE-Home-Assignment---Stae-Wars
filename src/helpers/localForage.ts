@@ -1,5 +1,6 @@
 import localForage from 'localforage';
 import { fetchFilmsList } from './swapi'
+import Film from '../interfaces/film'
 
 const fileCache = localForage.createInstance({
   name: 'filmscache',
@@ -8,26 +9,21 @@ const fileCache = localForage.createInstance({
 
 export const getFilmsList = async () => {
 
-  try {
-    const cachedResult = await fileCache.getItem<any>(
-      "starWarsFilmsList"
-    );
+  const cachedResult = await fileCache.getItem<Film>(
+    "starWarsFilmsList"
+  );
 
-    if (cachedResult) {
-      return cachedResult;
-    }
-
-    const fetchedData = await fetchFilmsList()
-
-    await fileCache.setItem(
-      "starWarsFilmsList",
-      fetchedData
-    );
-
-    return fetchedData;
-
-  } catch (error) {
-    console.error(error)
+  if (cachedResult) {
+    return cachedResult;
   }
+
+  const fetchedData = await fetchFilmsList()
+
+  await fileCache.setItem(
+    "starWarsFilmsList",
+    fetchedData
+  );
+
+  return fetchedData;
 
 }

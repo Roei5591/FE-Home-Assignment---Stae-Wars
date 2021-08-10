@@ -1,4 +1,5 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
+import { getFilmsList } from '../helpers/localForage'
 
 
 
@@ -9,5 +10,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
