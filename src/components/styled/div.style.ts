@@ -8,7 +8,12 @@ export const AppContiner = styled.div`
 `
 
 export const SideMenuContiner = styled.div`
-  background: red;     
+  //background: url('/stars_backgound.jpg') ; 
+  //background-size: cover;
+  
+  background: lightyellow;     
   width: 30%;
   height: 100%;
+  position: absolute;
+  //justify-content: center;
 `

@@ -9,8 +9,8 @@ import SideMenu from './side_menu/sideMenu'
 function App() {
   return (
     <AppContiner>
-      <SideMenu></SideMenu>
-    </AppContiner>
+      <SideMenu />
+    </AppContiner >
 
   );
 }
