@@ -1,6 +1,7 @@
+import { SideMenuContiner } from '../styled/div.style'
 
 function SideMenu() {
-  return <div></div>
+  return <SideMenuContiner ></SideMenuContiner >
 }
 
 export default SideMenu
