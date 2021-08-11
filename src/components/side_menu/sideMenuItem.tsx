@@ -10,7 +10,12 @@ function SideMenuItem({ film }: { film: Film }) {
 
   const handleClick = () => {
     if (setSelectedFilm) {
-      setSelectedFilm(film);
+      if (film.id === selectedFilm?.id) {
+        setSelectedFilm(null);
+      } else {
+        setSelectedFilm(film);
+      }
+
     }
   }
 

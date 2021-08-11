@@ -44,4 +44,5 @@ export const FilmContentContainer = styled.div`
   justify-content: center;
   display: flex;
   margin-top: 30px;
+  //text-align: center;
 `

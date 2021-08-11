@@ -2,18 +2,23 @@ import { FilmDetailSectionsContainer, FilmContentContainer } from '../styled/div
 import { FilmTitle } from '../styled/h1.style'
 import { FilmDetailSpan } from '../styled/span.style';
 import { FilmAbstract } from '../styled/p.style';
+
 import { StoreContext } from '../../store/selectedFilmStore';
-import { useContext, useRef } from 'react';
-import React from 'react';
+
+import FavoriteButton from './FavoriteButton'
+import React, { useContext } from 'react';
 import { useEffect } from 'react';
-import { StyledComponent } from 'styled-components';
+
+import { StarWarsImg } from '../styled/img.style';
+
+
 
 export default function FilmDetailSections() {
 
   const { selectedFilm } = useContext(StoreContext);
 
 
-
+  //<FilmAbstract dangerouslySetInnerHTML={replace(selectedFilm?.abstract)}></FilmAbstract >
   const replace = (text: string | undefined) => {
     if (!text) text = "";
     else text = text.replace(/<script.*?<\/script>/g, '<br>')
@@ -21,18 +26,23 @@ export default function FilmDetailSections() {
     // .replace(/(<([^>]+)>)/ig, "<br>")
     //.replace(/(?:\r\n\r\n)/g, '<br>')
     //.replace(/(?:\\r\\n\\r\\n)/g, '<br>');
-
     return { __html: text };
   }
 
-  console.log([selectedFilm?.abstract])
-
-  useEffect(() => {
+  //<div id="stage"><img src="https://s3.amazonaws.com/csstarwars/starwars-logo.png" alt="Star Wars" /></div>
 
 
-  }, [])
+
+
+
+  if (!selectedFilm) {
+    return <FilmDetailSectionsContainer>
+      <StarWarsImg src="starwars-logo.png" alt=""></StarWarsImg>
+    </FilmDetailSectionsContainer>
+  }
 
   return <FilmDetailSectionsContainer>
+
     <FilmContentContainer>
       <FilmTitle>
         {selectedFilm?.title}
@@ -45,12 +55,14 @@ export default function FilmDetailSections() {
     </FilmContentContainer>
 
     <FilmContentContainer>
-      <FilmAbstract dangerouslySetInnerHTML={replace(selectedFilm?.abstract)}></FilmAbstract >
+      <FilmAbstract >{selectedFilm?.abstract}</FilmAbstract>
+    </FilmContentContainer>
 
+    <FilmContentContainer>
+      {selectedFilm && <FavoriteButton filmId={selectedFilm?.id} />}
     </FilmContentContainer>
 
   </FilmDetailSectionsContainer >
 
 }
 
-// <FilmAbstract >{selectedFilm?.abstract}</FilmAbstract>
