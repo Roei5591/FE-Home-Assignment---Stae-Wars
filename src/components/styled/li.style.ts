@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
-export const StyledListItem = styled.li`
 
+export const StyledListItem = styled.li`
 justify-content: center;
 display: flex;
 background-color: blue;
 align-items: center;
-//height: 20%;
+min-height: 20%;
 
 
 

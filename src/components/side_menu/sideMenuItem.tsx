@@ -1,11 +1,17 @@
 
+import { useContext } from 'react';
 import { StyledListItem } from '../styled/li.style'
 import { StyledListItemSpan } from '../styled/span.style'
 
 
 function SideMenuItem({ title }: { title: string }) {
 
-  return <StyledListItem>
+  //const setSelectedFilm = useContext();
+  const handleClick = () => {
+
+  }
+
+  return <StyledListItem >
     <StyledListItemSpan>
       {title}
     </StyledListItemSpan>
