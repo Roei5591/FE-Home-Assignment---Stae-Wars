@@ -22,11 +22,26 @@ export const SideMenuContainer = styled.div`
 export const FilmDetailSectionsContainer = styled.div`
   //background: url('/stars_backgound.jpg') ; 
   //background-size: cover;
-  
+  //justify-content: center;
   //background: lightgrey;     
   width: 70%;
   height: 100%;
   position: absolute;
   right: 0;
   //justify-content: center;
+  //display: flex;
+`
+
+export const FilmContentContainer = styled.div`
+  //background: url('/stars_backgound.jpg') ; 
+  //background-size: cover;
+  //justify-content: center;
+  //background: lightgrey;     
+  width: 100%;
+  //height: 100%;
+  //position: absolute;
+  //right: 0;
+  justify-content: center;
+  display: flex;
+  margin-top: 30px;
 `
