@@ -1,19 +1,22 @@
-
 import { useContext } from 'react';
-import { StyledListItem } from '../styled/li.style'
-import { StyledListItemSpan } from '../styled/span.style'
+import { StyledListItem } from '../styled/li.style';
+import { StyledListItemSpan } from '../styled/span.style';
+import { StoreContext } from '../../store/selectedFilmStore';
+import Film from '../../interfaces/film';
 
+function SideMenuItem({ film }: { film: Film }) {
 
-function SideMenuItem({ title }: { title: string }) {
+  const { selectedFilm, setSelectedFilm } = useContext(StoreContext);
 
-  //const setSelectedFilm = useContext();
   const handleClick = () => {
-
+    if (setSelectedFilm) {
+      setSelectedFilm(film);
+    }
   }
 
-  return <StyledListItem >
+  return <StyledListItem onClick={handleClick} selected={film.id === selectedFilm?.id}>
     <StyledListItemSpan>
-      {title}
+      {film.title}
     </StyledListItemSpan>
   </StyledListItem>
 }

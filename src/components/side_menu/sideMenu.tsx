@@ -1,29 +1,24 @@
 import { SideMenuContainer } from '../styled/div.style'
 import { StyledList } from '../styled/ul.style'
 import { getFilmsList } from '../../helpers/localForage'
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import SideMenuItem from './sideMenuItem'
 
-function SideMenu({ selectedFilmId }: { selectedFilmId: number }) {
+function SideMenu() {
 
   const [filmsList, setFilmsList] = useState<any>([])
 
-  const ref = useRef<HTMLUListElement>(null);
-
   useEffect(() => {
-    getFilmsList().then(v => {
-      setFilmsList(v)
+    getFilmsList().then(filmsList => {
+      setFilmsList(filmsList)
     })
-    if (ref.current !== null) {
-      console.log("width", ref.current.offsetWidth)
-    }
   }, [])
 
   return <SideMenuContainer>
-    <StyledList ref={ref}>
+    <StyledList>
       {
-        filmsList.map((item: any) => {
-          return <SideMenuItem key={item.id} title={item.title} />
+        filmsList.map((film: any) => {
+          return <SideMenuItem key={film.id} film={film} />
         })
       }
     </StyledList>

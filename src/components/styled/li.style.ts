@@ -8,7 +8,7 @@ background-color: blue;
 align-items: center;
 min-height: 20%;
 
-
+background: ${({ selected }: { selected: boolean }) => selected ? 'blue' : 'green'};
 
 &: hover {
   background: url('/stars_backgound.jpg')  no-repeat center fixed; 
