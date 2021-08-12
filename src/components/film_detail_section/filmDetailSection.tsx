@@ -1,4 +1,4 @@
-import { FilmDetailSectionsContainer, FilmContentContainer } from '../styled/div.style'
+import { FilmDetailSectionsContainer, FilmContentContainer, StarWarsImgContainer } from '../styled/div.style'
 import { FilmTitle } from '../styled/h1.style'
 import { FilmDetailSpan } from '../styled/span.style';
 import { FilmAbstract } from '../styled/p.style';
@@ -36,9 +36,9 @@ export default function FilmDetailSections() {
 
 
   if (!selectedFilm) {
-    return <FilmDetailSectionsContainer>
+    return <StarWarsImgContainer>
       <StarWarsImg src="starwars-logo.png" alt=""></StarWarsImg>
-    </FilmDetailSectionsContainer>
+    </StarWarsImgContainer>
   }
 
   return <FilmDetailSectionsContainer>
@@ -50,8 +50,8 @@ export default function FilmDetailSections() {
     </FilmContentContainer>
 
     <FilmContentContainer>
-      <FilmDetailSpan>{selectedFilm?.releaseDate}</FilmDetailSpan>
-      <FilmDetailSpan>{selectedFilm?.director}</FilmDetailSpan>
+      <FilmDetailSpan>release date: {selectedFilm?.releaseDate}</FilmDetailSpan>
+      <FilmDetailSpan>director: {selectedFilm?.director}</FilmDetailSpan>
     </FilmContentContainer>
 
     <FilmContentContainer>

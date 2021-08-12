@@ -20,7 +20,7 @@ function SideMenuItem({ film }: { film: Film }) {
   }
 
   return <StyledListItem onClick={handleClick} selected={film.id === selectedFilm?.id}>
-    <StyledListItemSpan>
+    <StyledListItemSpan selected={film.id === selectedFilm?.id}>
       {film.title}
     </StyledListItemSpan>
   </StyledListItem>
