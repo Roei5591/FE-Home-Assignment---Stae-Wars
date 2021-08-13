@@ -4,5 +4,4 @@ export default interface Film {
   abstract: string;
   releaseDate: string;
   director: string;
-  producer: string;
 }

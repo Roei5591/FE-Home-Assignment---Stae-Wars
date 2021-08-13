@@ -1,11 +1,10 @@
 import styled from 'styled-components'
 
 export const AddOrRemoveFromFavoriteButton = styled.button`
-	background-color: yellow;
+	background-color: ${props => props.theme.color};
 	border-radius:6px;
 	display:inline-block;
 	cursor:pointer;
-	color:#333333;
 	font-family:Arial;
 	font-size:15px;
 	font-weight:bold;
