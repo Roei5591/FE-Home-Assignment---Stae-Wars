@@ -2,12 +2,12 @@ import { SideMenuContainer } from '../styled/div.style'
 import { StyledList } from '../styled/ul.style'
 import { getFilmsList } from '../../helpers/localForage'
 import { useEffect, useState } from 'react';
-import SideMenuItem from './sideMenuItem'
+import SideMenuItem from './sideMenuItem';
 import Film from '../../interfaces/film';
 
 function SideMenu() {
 
-  const [filmsList, setFilmsList] = useState<Film[]>([])
+  const [filmsList, setFilmsList] = useState<Film[]>([]);
 
   useEffect(() => {
     getFilmsList().then(filmsList => {
