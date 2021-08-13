@@ -20,5 +20,5 @@ margin: 20px auto 0;
 @media only screen and (max-width:${props => props.theme.largeScreenSize}){
    font-size: 3.2vw;
    margin: 2vh auto;
-  }
+}
 `

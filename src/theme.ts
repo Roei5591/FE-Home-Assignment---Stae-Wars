@@ -3,7 +3,3 @@ export const theme = {
   largeScreenSize: "1200px"
 };
 
-export interface Theme {
-  color: string;
-  largeScreenSize: string;
-}

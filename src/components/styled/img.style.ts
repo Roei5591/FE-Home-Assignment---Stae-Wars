@@ -15,7 +15,6 @@ text-align: center;
 display: block;
 
 @media only screen and (max-aspect-ratio: 15/10){
-  //display: none;
   height: 20vmin;
   width: 40vmin;
   }
