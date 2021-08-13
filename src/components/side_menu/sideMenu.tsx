@@ -3,7 +3,15 @@ import { StyledList } from '../styled/ul.style'
 import { getFilmsList } from '../../helpers/localForage'
 import { useEffect, useState } from 'react';
 import SideMenuItem from './sideMenuItem';
-import Film from '../../interfaces/film';
+//import Film from '../../interfaces/film';
+
+interface Film {
+  id: number;
+  title: string;
+  abstract: string;
+  releaseDate: string;
+  director: string;
+}
 
 function SideMenu() {
 
