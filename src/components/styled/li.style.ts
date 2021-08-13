@@ -8,7 +8,7 @@ align-items: center;
 ${({ isSelected }: { isSelected: boolean }) => !isSelected && "background:linear-gradient(to bottom, yellow 5%, #d6bd4f 100%);"};
 background-size: cover;
 
-&: hover {
+&:hover {
   ${({ isSelected }: { isSelected: boolean }) => !isSelected && "background:linear-gradient(to bottom, #f9dc55 5%, #fdff9c 100%);"};
-};
+}
 `
