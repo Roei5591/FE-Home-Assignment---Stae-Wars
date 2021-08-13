@@ -1,6 +1,6 @@
 import localForage from 'localforage';
-import { fetchFilmsList } from './swapi'
-import Film from '../interfaces/film'
+import { fetchFilmsList } from './swapi';
+import Film from '../interfaces/film';
 
 const fileCache = localForage.createInstance({
   name: 'filmscache',
@@ -8,7 +8,7 @@ const fileCache = localForage.createInstance({
 
 export const getFilmsList = async () => {
 
-  const cachedResult = await fileCache.getItem<Film>(
+  const cachedResult = await fileCache.getItem<Film[]>(
     "starWarsFilmsList"
   );
 
@@ -48,29 +48,29 @@ export const getIsInFavorites = async (FilmId: number) => {
 
 export const toggleIsInFavorites = async (FilmId: number) => {
 
-  console.log("ffffff");
-  const cachedFavoriteSet = await fileCache.getItem<Set<number>>(
+  let cachedFavoriteSet = await fileCache.getItem<Set<number>>(
     "FavoritesFilm"
   );
 
+  //in case storage was deleted
   if (!cachedFavoriteSet) {
     await initIsInFavorites();
-    return;
+    cachedFavoriteSet = await fileCache.getItem<Set<number>>(
+      "FavoritesFilm"
+    );
+    if (!cachedFavoriteSet) return;
   }
 
   if (cachedFavoriteSet.has(FilmId)) {
-    cachedFavoriteSet.delete(FilmId)
-
+    cachedFavoriteSet.delete(FilmId);
   } else {
-    console.log("has2")
-    cachedFavoriteSet.add(FilmId)
+    cachedFavoriteSet.add(FilmId);
   }
 
   await fileCache.setItem(
     "FavoritesFilm",
     cachedFavoriteSet
   );
-
 }
 
 const initIsInFavorites = async () => {

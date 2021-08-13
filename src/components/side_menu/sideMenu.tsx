@@ -3,10 +3,11 @@ import { StyledList } from '../styled/ul.style'
 import { getFilmsList } from '../../helpers/localForage'
 import { useEffect, useState } from 'react';
 import SideMenuItem from './sideMenuItem'
+import Film from '../../interfaces/film';
 
 function SideMenu() {
 
-  const [filmsList, setFilmsList] = useState<any>([])
+  const [filmsList, setFilmsList] = useState<Film[]>([])
 
   useEffect(() => {
     getFilmsList().then(filmsList => {
@@ -17,7 +18,7 @@ function SideMenu() {
   return <SideMenuContainer>
     <StyledList>
       {
-        filmsList.map((film: any) => {
+        filmsList.map((film: Film) => {
           return <SideMenuItem key={film.id} film={film} />
         })
       }

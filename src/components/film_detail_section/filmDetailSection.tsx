@@ -2,15 +2,10 @@ import { FilmDetailSectionsContainer, FilmContentContainer, StarWarsImgContainer
 import { FilmTitle } from '../styled/h1.style'
 import { FilmDetailSpan } from '../styled/span.style';
 import { FilmAbstract } from '../styled/p.style';
-
 import { StoreContext } from '../../store/selectedFilmStore';
-
 import FavoriteButton from './FavoriteButton'
-import React, { useContext } from 'react';
-import { useEffect } from 'react';
-
+import { useContext } from 'react';
 import { StarWarsImg } from '../styled/img.style';
-
 
 
 export default function FilmDetailSections() {
@@ -18,23 +13,7 @@ export default function FilmDetailSections() {
   const { selectedFilm } = useContext(StoreContext);
 
 
-  //<FilmAbstract dangerouslySetInnerHTML={replace(selectedFilm?.abstract)}></FilmAbstract >
-  const replace = (text: string | undefined) => {
-    if (!text) text = "";
-    else text = text.replace(/<script.*?<\/script>/g, '<br>')
-    //.replace(/<style.*?<\/style>/g, '<br>')
-    // .replace(/(<([^>]+)>)/ig, "<br>")
-    //.replace(/(?:\r\n\r\n)/g, '<br>')
-    //.replace(/(?:\\r\\n\\r\\n)/g, '<br>');
-    return { __html: text };
-  }
-
-  //<div id="stage"><img src="https://s3.amazonaws.com/csstarwars/starwars-logo.png" alt="Star Wars" /></div>
-
-
-
-
-
+  //if no film chosen show Star Wars logo
   if (!selectedFilm) {
     return <StarWarsImgContainer>
       <StarWarsImg src="starwars-logo.png" alt=""></StarWarsImg>
@@ -45,7 +24,7 @@ export default function FilmDetailSections() {
 
     <FilmContentContainer>
       <FilmTitle>
-        {selectedFilm?.title}
+        {selectedFilm.title}
       </FilmTitle>
     </FilmContentContainer>
 
@@ -55,11 +34,13 @@ export default function FilmDetailSections() {
     </FilmContentContainer>
 
     <FilmContentContainer>
-      <FilmAbstract >{selectedFilm?.abstract}</FilmAbstract>
+      <FilmAbstract>
+        {selectedFilm.abstract}
+      </FilmAbstract>
     </FilmContentContainer>
 
     <FilmContentContainer>
-      {selectedFilm && <FavoriteButton filmId={selectedFilm?.id} />}
+      {selectedFilm && <FavoriteButton filmId={selectedFilm.id} />}
     </FilmContentContainer>
 
   </FilmDetailSectionsContainer >

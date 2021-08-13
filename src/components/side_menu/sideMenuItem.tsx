@@ -15,12 +15,13 @@ function SideMenuItem({ film }: { film: Film }) {
       } else {
         setSelectedFilm(film);
       }
-
     }
   }
 
-  return <StyledListItem onClick={handleClick} selected={film.id === selectedFilm?.id}>
-    <StyledListItemSpan selected={film.id === selectedFilm?.id}>
+  const isSelected = film.id === selectedFilm?.id;
+
+  return <StyledListItem onClick={handleClick} isSelected={isSelected}>
+    <StyledListItemSpan isSelected={isSelected}>
       {film.title}
     </StyledListItemSpan>
   </StyledListItem>

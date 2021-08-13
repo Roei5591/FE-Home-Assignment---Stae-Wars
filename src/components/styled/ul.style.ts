@@ -6,11 +6,7 @@ export const StyledList = styled.ul`
  padding: 0;
  width: auto;
  height: inherit;
- //position: relative;
- 
  display: grid;
- //grid-gap: 0;
- //grid-template-rows: repeat(6, 1fr);;
  overflow-y: auto;
  direction:rtl; 
 `
