@@ -3,10 +3,10 @@ import styled from 'styled-components'
 export const AppContainer = styled.div`
   background: url('/stars_backgound.jpg') no-repeat center fixed;     
   background-size: cover;
-  width: 100wh;
+  width: 100vw;
   height: 100vh;
   display: flex;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Assistant', sans-serif;
 `
 export const SideMenuContainer = styled.div`
   height: 100%;
